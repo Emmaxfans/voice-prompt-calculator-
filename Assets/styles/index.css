@@ -11,12 +11,12 @@ body {
 .cover {
     display: flex;
     justify-content: center;
-    padding-top: 50px;
+    padding-top: 30px;
 }
 .container {
     background-image: url("/Assets/images/symbols.jpg");
     width: 25%;
-    padding-bottom: 30px;
+    /* padding-bottom: 15px; */
     border-radius: 10px;
     box-shadow: 8px 8px 12px 0px #5b5964d5, -1px -1px 20px 0px;
 }

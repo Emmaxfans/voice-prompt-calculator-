@@ -164,25 +164,25 @@ symbols.forEach(btn => {
 })
 
 // Attaching event listener to percent button
-percentBtn.addEventListener('click', btn => {
+percentBtn.addEventListener('click', () => {
     calculator.percent()
     calculator.updateOutput()
 })
 
 // Attaching event listener to equals button
-equalsBtn.addEventListener('click', btn => {
+equalsBtn.addEventListener('click', () => {
     calculator.compute()
     calculator.updateOutput()
 })
 
 // Attaching event listener to AC button
-clearBtn.addEventListener('click', btn => {
+clearBtn.addEventListener('click', () => {
     calculator.clearAll()
     calculator.updateOutput()
 })
 
 // Attaching event listener to delete button
-deleteBtn.addEventListener('click', btn => {
+deleteBtn.addEventListener('click', () => {
     calculator.delete()
     calculator.updateOutput()
 })
