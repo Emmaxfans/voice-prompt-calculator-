@@ -184,6 +184,11 @@ equalsBtn.addEventListener('touchstart', (e) => {
     calculator.updateOutput()
 })
 
+equalsBtn.addEventListener('touchend', (e) => {
+    e.preventDefault(); // Prevent the default touch behavior
+    // You can add any additional logic you need here.
+});
+
 
 // Attaching event listener to AC button
 clearBtn.addEventListener('click', () => {
