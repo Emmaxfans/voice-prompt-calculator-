@@ -143,7 +143,7 @@ let checkBox = document.getElementById('checkbox')
 
 //  Creating new class
 const calculator = new Calculator(previousElement, currentElement)
-var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 var recognition = new SpeechRecognition();
 
 
@@ -174,6 +174,14 @@ equalsBtn.addEventListener('click', () => {
     calculator.compute()
     calculator.updateOutput()
 })
+
+// Attaching touchstart event listener to equals button for mobile devices
+equalsBtn.addEventListener('touchstart', (e) => {
+    e.preventDefault(); // Prevent the default touch behavior
+    calculator.compute()
+    calculator.updateOutput()
+})
+
 
 // Attaching event listener to AC button
 clearBtn.addEventListener('click', () => {
