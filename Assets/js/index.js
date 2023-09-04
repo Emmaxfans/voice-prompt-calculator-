@@ -116,16 +116,18 @@ class Calculator {
         this.voiceStart = val;
     }
     speak() {
-        // Set the text and voice attributes.
-        let speech = new window.SpeechSynthesisUtterance();
-        speech.text = `Your answer is ${eval(this.currentOperand)}`
-        speech.volume = 1;
-        speech.rate = 1;
-        speech.pitch = 1;
-        window.speechSynthesis.speak(speech);
-        speech.onend = ()=>{alat()}
-        speech.addEventListener('onend', toggle)
-    }
+        if ('speechSynthesis' in window && window.SpeechSynthesisUtterance) {
+          let speech = new window.SpeechSynthesisUtterance();
+          speech.text = `Your answer is ${eval(this.currentOperand)}`;
+          speech.volume = 1;
+          speech.rate = 1;
+          speech.pitch = 1;
+      
+          window.speechSynthesis.speak(speech);
+        } else {
+          console.log('Speech synthesis is not supported in this browser.');
+        }
+      }      
 }
 
 
@@ -133,7 +135,7 @@ class Calculator {
 let numbers = document.querySelectorAll('[data-number]');
 let symbols = document.querySelectorAll('[data-symbol]');
 let deleteBtn = document.querySelector('[data-delete]');
-let equalsBtn = document.querySelector('[data-equal]');
+let equalsBtn = document.querySelector('#equalsBtn');
 let clearBtn = document.querySelector('[data-clear]');
 let previousElement = document.querySelector('[data-previous]');
 let currentElement = document.querySelector('[data-current]');
